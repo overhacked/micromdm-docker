@@ -22,6 +22,7 @@ exec /app/micromdm serve \
 	${MM_APNS_PASSWORD:+-apns-password="$MM_APNS_PASSWORD"} \
 	${MM_SERVER_LISTEN:+-http-addr="$MM_SERVER_LISTEN"} \
 	-server-url=$URL \
+	${MM_SERVER_DEBUG:+-http-debug="$MM_SERVER_DEBUG"} \
 	-tls=$TLS \
 	${MM_SERVER_CERT:+-tls-cert="$MM_SERVER_CERT"} \
 	${MM_SERVER_KEY:+-tls-key="$MM_SERVER_KEY"} \
