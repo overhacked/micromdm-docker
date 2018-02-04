@@ -10,7 +10,8 @@ RUN cd /tmp && \
     chmod a+x /app/micromdm /app/mdmctl && \
 	rm -rf /tmp/build /tmp/micromdm_${MICROMDM_VERSION}.zip
 
-RUN apk --no-cache del build-deps
+RUN apk --no-cache del build-deps && \
+	apk --no-cache add ca-certificates
 
 VOLUME /conf /data /var/db/micromdm
 EXPOSE 8080
