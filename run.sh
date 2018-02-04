@@ -4,7 +4,6 @@ APNS_CERT=${MM_APNS_CERT:-/conf/apns.pem}
 APNS_KEY=${MM_APNS_KEY:-/conf/apns.key}
 URL=${MM_SERVER_URL:-https://micromdm/}
 TLS=${MM_SERVER_TLS:-true}
-LISTEN_ADDR=${MM_SERVER_LISTEN}
 FILE_REPO=${MM_FILE_REPO:-/data}
 
 if [ "$MM_API_KEY" ]; then
@@ -21,6 +20,7 @@ exec /app/micromdm serve \
 	-apns-cert="$APNS_CERT" \
 	-apns-key="$APNS_KEY" \
 	${MM_APNS_PASSWORD:+-apns-password="$MM_APNS_PASSWORD"} \
+	${MM_SERVER_LISTEN:+-http-addr="$MM_SERVER_LISTEN"} \
 	-server-url=$URL \
 	-tls=$TLS \
 	${MM_SERVER_CERT:+-tls-cert="$MM_SERVER_CERT"} \
