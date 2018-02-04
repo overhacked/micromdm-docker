@@ -19,6 +19,7 @@ fi
 exec /app/micromdm serve \
 	-apns-cert="$APNS_CERT" \
 	-apns-key="$APNS_KEY" \
+	${API_KEY:+-api-key="$API_KEY"} \
 	${MM_APNS_PASSWORD:+-apns-password="$MM_APNS_PASSWORD"} \
 	${MM_SERVER_LISTEN:+-http-addr="$MM_SERVER_LISTEN"} \
 	-server-url=$URL \
