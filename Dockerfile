@@ -12,4 +12,7 @@ RUN cd /tmp && \
 
 RUN apk --no-cache del build-deps
 
-CMD ["/app/micromdm"]
+VOLUME /conf /data /var/db/micromdm
+EXPOSE 8080
+ADD run.sh /
+CMD ["/run.sh"]
