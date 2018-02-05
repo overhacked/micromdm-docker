@@ -13,6 +13,13 @@ RUN cd /tmp && \
 RUN apk --no-cache del build-deps && \
 	apk --no-cache add ca-certificates
 
+ENV MM_APNS_CERT="/conf/apns.pem" MM_APNS_KEY="/conf/apns.key" MM_APNS_PASSWORD="" MM_FILE_REPO="/data" MM_CTL_ENABLED="false"
+# Also available to override defaults:
+# MM_SERVER_LISTEN=":https"
+# MM_SERVER_TLS="true"
+# MM_SERVER_URL="https://micromdm"
+# MM_SERVER_DEBUG="false"
+# MM_API_KEY will be randomly generated on first run and saved in /conf/api_key unless specified
 VOLUME /conf /data /var/db/micromdm
 EXPOSE 8080
 ADD run.sh /

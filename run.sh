@@ -16,7 +16,7 @@ else
 	printf "API key not specified by \$MM_API_KEY or in /conf/api_key. Initialized to \"%s\" and saved in /conf/api_key.\n" "$API_KEY"
 fi
 
-/app/mdmctl config set -api-token="$API_KEY" -server-url="$URL"
+[[ -z "$MM_CTL_ENABLED" || "$MM_CTL_ENABLED" = "false" ]] || /app/mdmctl config set -api-token="$API_KEY" -server-url="$URL"
 
 exec /app/micromdm serve \
 	-apns-cert="$APNS_CERT" \
